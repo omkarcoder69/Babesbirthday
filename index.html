@@ -114,156 +114,520 @@
   section{
     position:relative;
     z-index:1;
-  }
-
-  #mainContent{
     min-height:100vh;
-    padding:32px 24px 56px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 24px;
   }
 
-  .bento-page{
-    width:min(980px, 100%);
+
+  /* SINGLE-SECTION BENTO BIRTHDAY */
+  .birthday-wrap{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
+    padding:42px 24px 20px;
+  }
+
+  .birthday-section{
+    width:min(900px, 100%);
     margin:0 auto;
   }
 
-  .bento-header{
+  .birthday-intro{
     text-align:left;
-    padding:28px 4px 22px;
+    padding:8px 4px 24px;
   }
 
-  .bento-header .eyebrow{ margin-bottom:10px; }
+  .birthday-intro .eyebrow{
+    margin-bottom:10px;
+  }
 
-  .bento-grid{
+  .birthday-intro h1{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:clamp(2.5rem, 7vw, 4.2rem);
+    line-height:1.05;
+    letter-spacing:-1px;
+  }
+
+  .birthday-intro h1 span{
+    color:var(--rose-deep);
+  }
+
+  .birthday-intro p{
+    margin-top:12px;
+    color:var(--ink-soft);
+    font-size:.95rem;
+  }
+
+  .birthday-bento{
     display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    grid-auto-rows:minmax(120px, auto);
+    grid-template-columns:1.35fr .8fr;
+    grid-template-rows:220px 220px;
     gap:14px;
   }
 
-  .bento-card{
+  .birthday-card{
     position:relative;
     overflow:hidden;
     background:var(--paper);
     border:1px solid var(--line);
-    border-radius:22px;
-    padding:24px;
-    min-height:120px;
-    box-shadow:0 8px 30px rgba(61,46,51,0.035);
+    border-radius:20px;
+    box-shadow:0 8px 28px rgba(61,46,51,.035);
   }
 
-  .bento-card h2{
-    font-family:'Fredoka', sans-serif;
-    font-weight:600;
-    font-size:1.25rem;
-    margin-bottom:8px;
-  }
-
-  .bento-card p{
-    color:var(--ink-soft);
-    line-height:1.6;
-    font-size:.9rem;
-  }
-
-  .hero-card{
-    grid-column:span 3;
+  .visual-card{
     grid-row:span 2;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    min-height:254px;
+    min-height:454px;
   }
 
-  .hero-card h1{
-    font-size:clamp(2.4rem, 6vw, 4rem);
+  .visual-card .tile-bg{
+    position:absolute;
+    inset:0;
   }
 
-  .hero-card .hero-sub{
-    margin-top:14px;
-    max-width:430px;
+  .visual-card video,
+  .visual-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
 
-  .wish-card{
-    grid-column:span 1;
-    grid-row:span 2;
+  .visual-card video:not([src]),
+  .visual-card img:not([src]),
+  .visual-card img[src=""]{
+    display:none;
+  }
+
+  .visual-card .play-icon{
+    z-index:2;
+  }
+
+  .cake-card{
+    padding:22px 18px;
     text-align:center;
     display:flex;
     flex-direction:column;
+    align-items:center;
     justify-content:center;
   }
 
-  .note-card-bento{
-    grid-column:span 2;
-    grid-row:span 2;
-    opacity:1;
-    transform:none;
-    max-width:none;
-    padding:26px;
+  .card-kicker{
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:2px;
+    color:var(--rose-deep);
   }
 
-  .note-card-bento p{
+  .cake-emoji{
+    font-size:1.5rem;
+    margin:6px 0 2px;
+  }
+
+  .cake-card .cake-hint{
+    margin-bottom:30px;
+    color:var(--ink-soft);
+    font-size:.78rem;
+  }
+
+  .cake-card .cake{
+    width:145px;
+  }
+
+  .cake-card .candles{
+    gap:15px;
+  }
+
+  .cake-card .candle{
+    width:5px;
+    height:28px;
+  }
+
+  .cake-card .tier.top{
+    height:34px;
+    margin-left:19px;
+    margin-right:19px;
+  }
+
+  .cake-card .tier.bottom{
+    height:52px;
+  }
+
+  .cake-card .cake-msg{
+    margin-top:17px;
+    font-size:1.1rem;
+  }
+
+  .note-bento-card{
+    padding:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .note-bento-card .note-card{
+    display:none;
+    max-width:none;
+    width:100%;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    opacity:1;
+    transform:none;
+  }
+
+  .note-bento-card .note-card.show{
+    display:block;
+  }
+
+  .note-bento-card .note-card h2{
+    font-size:1.2rem;
+    margin-bottom:12px;
+  }
+
+  .note-bento-card .note-card p{
+    font-size:.82rem;
+    line-height:1.65;
     text-align:left;
   }
 
-  .gallery-card{
+  .note-bento-card .signoff{
+    font-size:1.2rem;
+    margin-top:12px;
+  }
+
+  .moments-card{
     grid-column:span 2;
-    grid-row:span 2;
     padding:18px;
   }
 
-  .gallery-card .gallery-title{
-    margin:4px 6px 14px;
+  .moments-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
   }
 
-  .mini-gallery{
+  .moments-heading > span{
+    font-size:1rem;
+  }
+
+  .moment-grid{
     display:grid;
-    grid-template-columns:1.35fr .8fr;
-    grid-template-rows:92px 92px;
-    gap:10px;
-    height:194px;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    height:155px;
   }
 
-  .mini-gallery .bento-tile{ min-height:0; border-radius:14px; }
-  .mini-gallery .big-mini{ grid-row:span 2; }
-
-  .scroll-hint{
-    margin-top:24px;
-    text-align:left;
+  .moment-tile{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:var(--paper);
   }
 
-  .cake{
-    width:170px;
+  .moment-tile .tile-bg{
+    position:absolute;
+    inset:0;
   }
 
-  .cake-msg{
-    margin-top:24px;
+  .moment-tile img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
 
-  .wish-card .cake-hint{
-    margin-bottom:38px;
+  .moment-tile img:not([src]),
+  .moment-tile img[src=""]{
+    display:none;
   }
 
-  .wish-card .cake{
-    margin-top:4px;
+  .moment-tile .tile-label{
+    padding:8px;
+    font-size:.65rem;
   }
 
-  @media(max-width:760px){
-    #mainContent{padding:18px 16px 40px;}
-    .bento-grid{grid-template-columns:repeat(2,1fr);}
-    .hero-card,.wish-card,.note-card-bento,.gallery-card{
+  .birthday-section footer{
+    padding:22px 0 4px;
+  }
+
+  @media(max-width:680px){
+    .birthday-wrap{
+      padding:24px 16px 14px;
+    }
+
+    .birthday-bento{
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:260px 230px 190px;
+    }
+
+    .visual-card{
+      grid-column:span 2;
+      grid-row:span 1;
+      min-height:260px;
+    }
+
+    .cake-card,
+    .note-bento-card{
+      grid-row:span 1;
+    }
+
+    .moments-card{
       grid-column:span 2;
     }
-    .hero-card{grid-row:span 1;}
-    .wish-card{grid-row:span 1; min-height:300px;}
-    .note-card-bento,.gallery-card{grid-row:span 1;}
   }
 
-  @media(max-width:480px){
-    .bento-grid{gap:10px;}
-    .bento-card{border-radius:18px;padding:20px;}
-    .hero-card h1{font-size:2.35rem;}
-    .mini-gallery{grid-template-columns:1fr 1fr;grid-template-rows:100px 100px;height:210px;}
-    .mini-gallery .big-mini{grid-column:span 2;grid-row:span 1;}
+  @media(max-width:460px){
+    .birthday-intro h1{
+      font-size:2.45rem;
+    }
+
+    .birthday-bento{
+      gap:10px;
+      grid-template-rows:230px 235px 175px;
+    }
+
+    .birthday-card{
+      border-radius:17px;
+    }
+
+    .cake-card{
+      padding:16px 10px;
+    }
+
+    .cake-card .cake{
+      width:125px;
+    }
+
+    .cake-card .candles{
+      gap:12px;
+    }
+
+    .note-bento-card{
+      padding:16px;
+    }
+
+    .note-bento-card .locked-hint{
+      font-size:.72rem;
+    }
+
+    .moments-card{
+      padding:13px;
+    }
+
+    .moment-grid{
+      gap:7px;
+      height:135px;
+    }
   }
+
+
+  /* COOL BIRTHDAY DETAILS */
+  .birthday-actions{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .tiny-btn{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.88);
+    color:var(--rose-deep);
+    border-radius:999px;
+    padding:8px 12px;
+    font:600 .72rem 'Quicksand',sans-serif;
+    cursor:pointer;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .tiny-btn:hover{
+    transform:translateY(-2px);
+    background:#fff;
+  }
+  .memory-count{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:3;
+    padding:5px 9px;
+    border-radius:999px;
+    background:rgba(255,255,255,.86);
+    color:var(--ink-soft);
+    font-size:.62rem;
+    font-weight:600;
+    letter-spacing:.3px;
+    backdrop-filter:blur(5px);
+  }
+  .surprise-card{
+    grid-column:span 2;
+    min-height:110px;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    background:linear-gradient(135deg,#fff,#fff6f8);
+  }
+  .surprise-card h3{
+    font-family:'Fredoka',sans-serif;
+    font-size:1.05rem;
+    margin-bottom:4px;
+  }
+  .surprise-card p{
+    color:var(--ink-soft);
+    font-size:.76rem;
+  }
+  .surprise-btn{
+    flex:0 0 auto;
+    border:0;
+    border-radius:999px;
+    background:var(--rose-deep);
+    color:#fff;
+    padding:11px 15px;
+    font:600 .75rem 'Quicksand',sans-serif;
+    cursor:pointer;
+    box-shadow:0 7px 18px rgba(217,139,166,.22);
+  }
+  .final-message{
+    display:none;
+    margin-top:8px;
+    font-family:'Caveat',cursive;
+    color:var(--rose-deep);
+    font-size:1.2rem;
+  }
+  .final-message.show{display:block;}
+  #petals{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:2;
+  }
+  .petal{
+    position:absolute;
+    top:-30px;
+    color:#efaac0;
+    opacity:.5;
+    animation:petalFall linear forwards;
+  }
+  @keyframes petalFall{
+    0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0;}
+    10%{opacity:.5;}
+    100%{transform:translate3d(40px,110vh,0) rotate(260deg);opacity:0;}
+  }
+  @media(max-width:680px){
+    .surprise-card{grid-column:span 2;}
+  }
+
+
+  /* CUTE WALKING CAT — NATURAL LEFT TO RIGHT WALK */
+  #cat-walker{
+    position:fixed;
+    left:-115px;
+    bottom:10px;
+    width:96px;
+    height:72px;
+    z-index:20;
+    pointer-events:none;
+    animation:catWalkAcross 16s linear infinite;
+  }
+
+  #cat-walker svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+    filter:drop-shadow(0 4px 5px rgba(61,46,51,.12));
+    transform:scaleX(-1);
+  }
+
+  .cat-body{
+    transform-origin:55px 43px;
+    animation:bodyBounce .34s ease-in-out infinite alternate;
+  }
+
+  .cat-head-bob{
+    transform-origin:38px 30px;
+    animation:headBob .34s ease-in-out infinite alternate;
+  }
+
+  .cat-tail-svg{
+    transform-origin:76px 43px;
+    animation:tailSway .55s ease-in-out infinite alternate;
+  }
+
+  .cat-leg-a{
+    transform-origin:34px 49px;
+    animation:frontLeg .28s ease-in-out infinite alternate;
+  }
+
+  .cat-leg-b{
+    transform-origin:47px 50px;
+    animation:backLeg .28s .14s ease-in-out infinite alternate;
+  }
+
+  .cat-leg-c{
+    transform-origin:60px 50px;
+    animation:backLeg .28s ease-in-out infinite alternate;
+  }
+
+  .cat-leg-d{
+    transform-origin:72px 48px;
+    animation:frontLeg .28s .14s ease-in-out infinite alternate;
+  }
+
+  @keyframes catWalkAcross{
+    0%{left:-115px;}
+    100%{left:calc(100vw + 115px);}
+  }
+
+  @keyframes bodyBounce{
+    from{transform:translateY(1px);}
+    to{transform:translateY(-1px);}
+  }
+
+  @keyframes headBob{
+    from{transform:translateY(1px) rotate(-1deg);}
+    to{transform:translateY(-1px) rotate(1deg);}
+  }
+
+  @keyframes tailSway{
+    from{transform:rotate(-10deg);}
+    to{transform:rotate(15deg);}
+  }
+
+  @keyframes frontLeg{
+    from{transform:rotate(14deg);}
+    to{transform:rotate(-14deg);}
+  }
+
+  @keyframes backLeg{
+    from{transform:rotate(-14deg);}
+    to{transform:rotate(14deg);}
+  }
+
+  @media(max-width:600px){
+    #cat-walker{
+      width:82px;
+      height:62px;
+      bottom:7px;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    #cat-walker{animation:none;left:14px;}
+    .cat-body,.cat-head-bob,.cat-tail-svg,
+    .cat-leg-a,.cat-leg-b,.cat-leg-c,.cat-leg-d{animation:none;}
+  }
+
 
   /* HERO */
   .eyebrow{
@@ -418,14 +782,6 @@
   .note-card.show{
     opacity:1;
     transform:translateY(0);
-  }
-
-  .note-card-bento .note-card.show{
-    display:block;
-  }
-
-  .note-card-bento .note-card{
-    display:none;
   }
   .note-card h2{
     font-family:'Fredoka', sans-serif;
@@ -704,99 +1060,138 @@
 <canvas id="sparkle-canvas"></canvas>
 <div id="hearts"></div>
 <canvas id="confetti-canvas"></canvas>
+<div id="petals"></div>
 
-<!-- SINGLE-PAGE BENTO BIRTHDAY -->
-<div id="mainContent" style="display:none;">
-  <main class="bento-page">
-    <div class="bento-header">
-      <div class="eyebrow">a little something for you</div>
-    </div>
+<div id="cat-walker" aria-hidden="true">
+  <svg viewBox="0 0 100 72" role="img" aria-label="cute black cat walking">
+    <g fill="#17151a">
+      <ellipse cx="55" cy="44" rx="30" ry="18"/>
+      <path class="cat-tail-svg" d="M77 42 C91 37 92 21 82 16 C76 13 72 18 76 23 C80 28 84 27 85 23"
+            fill="none" stroke="#17151a" stroke-width="7" stroke-linecap="round"/>
+      <g class="cat-leg-a"><rect x="32" y="48" width="7" height="19" rx="4"/></g>
+      <g class="cat-leg-b"><rect x="46" y="49" width="7" height="18" rx="4"/></g>
+      <g class="cat-leg-c"><rect x="59" y="49" width="7" height="18" rx="4"/></g>
+      <g class="cat-leg-d"><rect x="72" y="47" width="7" height="20" rx="4"/></g>
 
-    <div class="bento-grid">
-      <!-- HERO -->
-      <section class="bento-card hero-card">
-        <h1>Happy Birthday,<br><span>Lorem</span> 🎉</h1>
-        <p class="hero-sub">Today's all about you. Make a wish, enjoy the little moments, and celebrate today. 🤍</p>
-      </section>
-
-      <!-- CAKE / INTERACTION -->
-      <section class="bento-card wish-card" id="cake-section">
-        <h2>Make a wish 🎂</h2>
-        <div class="cake-hint">Tap each candle</div>
-        <div class="cake">
-          <div class="candles" id="candles"></div>
-          <div class="tier top"></div>
-          <div class="tier bottom"></div>
-          <div class="plate"></div>
-        </div>
-        <div class="cake-msg" id="cakeMsg"></div>
-      </section>
-
-      <!-- NOTE -->
-      <section class="bento-card note-card-bento">
-        <div id="lockedHint" class="locked-hint">✨ your note is waiting on the cake ✨</div>
-        <div class="note-card" id="noteCard">
-          <h2>For you 💌</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Every year with you feels
-            like a brand new favorite chapter. Thank you for your laugh, your patience, and every
-            little moment you make brighter just by being in it. I hope today is as wonderful as
-            you are.
-          </p>
-          <p style="margin-top:12px;">
-            Here's to more silly memories, more late-night talks, and many, many more birthdays
-            together.
-          </p>
-          <div class="signoff">— always yours 🤍</div>
-        </div>
-      </section>
-
-      <!-- MOMENTS -->
-      <section class="bento-card gallery-card">
-        <div class="gallery-title">Our moments 🎞️</div>
-        <div class="mini-gallery">
-          <div class="bento-tile big-mini">
-            <div class="tile-bg"></div>
-            <video muted loop playsinline autoplay><!-- src="your-video.mp4" --></video>
-            <div class="play-icon">▶</div>
-            <div class="tile-label">our video</div>
-          </div>
-
-          <div class="bento-tile">
-            <div class="tile-bg"></div>
-            <img alt="" src="" />
-            <div class="tile-label">photo</div>
-          </div>
-
-          <div class="bento-tile">
-            <div class="tile-bg"></div>
-            <img alt="" src="" />
-            <div class="tile-label">photo</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SMALL MEMORY TILES -->
-      <div class="bento-card" style="padding:0;min-height:254px;">
-        <div class="bento-tile" style="height:100%;border:0;border-radius:22px;">
-          <div class="tile-bg"></div>
-          <img alt="" src="" />
-          <div class="tile-label">favorite moment</div>
-        </div>
-      </div>
-
-      <div class="bento-card" style="padding:0;min-height:254px;">
-        <div class="bento-tile" style="height:100%;border:0;border-radius:22px;">
-          <div class="tile-bg"></div>
-          <img alt="" src="" />
-          <div class="tile-label">another memory</div>
-        </div>
-      </div>
-    </div>
-
-    <footer>made with 🤍 just for you</footer>
-  </main>
+      <g class="cat-head-bob">
+        <path d="M19 22 L24 5 L36 16 L48 8 L57 25 C60 37 51 47 37 47 C24 47 17 37 19 22Z"/>
+        <path d="M24 9 L27 18 L21 15Z" fill="#e9a8bb"/>
+        <path d="M48 12 L44 19 L52 17Z" fill="#e9a8bb"/>
+        <ellipse cx="30" cy="28" rx="2.5" ry="3.5" fill="#ffd86b"/>
+        <ellipse cx="45" cy="28" rx="2.5" ry="3.5" fill="#ffd86b"/>
+        <circle cx="30" cy="28" r="1" fill="#17151a"/>
+        <circle cx="45" cy="28" r="1" fill="#17151a"/>
+        <path d="M37 33 Q39 35 41 33" fill="none" stroke="#e9a8bb" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M26 34 L15 32 M26 37 L15 38 M49 34 L59 32 M49 37 L59 39"
+              stroke="#17151a" stroke-width="1" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
 </div>
+
+
+<!-- SINGLE-SECTION BENTO BIRTHDAY SCREEN -->
+<div id="mainContent" style="display:none;">
+  <main class="birthday-wrap">
+    <section class="birthday-section">
+
+      <div class="birthday-intro">
+        <div class="eyebrow">a little something for you</div>
+        <h1>Happy Birthday,<br><span>Lorem</span> 🎉</h1>
+        <p>Today's all about you. A little corner made just for you. 🤍</p>
+        <div class="birthday-actions">
+          <button class="tiny-btn" id="musicBtn" type="button">♫ soft mode</button>
+          <button class="tiny-btn" id="sparkleBtn" type="button">✦ make it sparkle</button>
+        </div>
+      </div>
+
+      <div class="birthday-bento">
+
+        <!-- LARGE VISUAL -->
+        <div class="birthday-card visual-card">
+          <div class="memory-count">memory 01 / 04</div>
+          <div class="tile-bg"></div>
+          <video muted loop playsinline autoplay><!-- src="your-video.mp4" --></video>
+          <img alt="" src="" />
+          <div class="play-icon">▶</div>
+          <div class="tile-label">our favorite moment</div>
+        </div>
+
+        <!-- CAKE -->
+        <div class="birthday-card cake-card" id="cake-section">
+          <div class="card-kicker">MAKE A WISH</div>
+          <div class="cake-emoji">🎂</div>
+          <div class="cake-hint">Tap each candle</div>
+
+          <div class="cake">
+            <div class="candles" id="candles"></div>
+            <div class="tier top"></div>
+            <div class="tier bottom"></div>
+            <div class="plate"></div>
+          </div>
+
+          <div class="cake-msg" id="cakeMsg"></div>
+        </div>
+
+        <!-- NOTE -->
+        <div class="birthday-card note-bento-card">
+          <div id="lockedHint" class="locked-hint">✨ your note is waiting on the cake ✨</div>
+
+          <div class="note-card" id="noteCard">
+            <h2>For you 💌</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Every year with you feels
+              like a brand new favorite chapter. Thank you for your laugh, your patience, and every
+              little moment you make brighter just by being in it.
+            </p>
+            <div class="signoff">— always yours 🤍</div>
+          </div>
+        </div>
+
+        <!-- MOMENTS -->
+        <div class="birthday-card moments-card">
+          <div class="moments-heading">
+            <div class="card-kicker">OUR MOMENTS</div>
+            <span>🎞️</span>
+          </div>
+
+          <div class="moment-grid">
+            <div class="moment-tile">
+              <div class="tile-bg"></div>
+              <img alt="" src="" />
+              <div class="tile-label">photo</div>
+            </div>
+
+            <div class="moment-tile">
+              <div class="tile-bg"></div>
+              <img alt="" src="" />
+              <div class="tile-label">photo</div>
+            </div>
+
+            <div class="moment-tile">
+              <div class="tile-bg"></div>
+              <img alt="" src="" />
+              <div class="tile-label">photo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LITTLE SURPRISE -->
+        <div class="birthday-card surprise-card">
+          <div>
+            <h3>One more thing… ✨</h3>
+            <p>Because one birthday message never feels like enough.</p>
+            <div class="final-message" id="finalMessage">You deserve the happiest little moments today and always. 🤍</div>
+          </div>
+          <button class="surprise-btn" id="surpriseBtn" type="button">Open surprise</button>
+        </div>
+
+      </div>
+
+      <footer>made with 🤍 just for you</footer>
+    </section>
+  </main>
+</div></div>
 
 <script>
   // ----- Countdown / unlock -----
@@ -1023,6 +1418,53 @@
     }
     animate();
   }
+  // ----- Small birthday extras -----
+  const surpriseBtn = document.getElementById('surpriseBtn');
+  const finalMessage = document.getElementById('finalMessage');
+
+  if(surpriseBtn){
+    surpriseBtn.addEventListener('click', () => {
+      finalMessage.classList.add('show');
+      surpriseBtn.textContent = '♡ opened';
+      surpriseBtn.disabled = true;
+      launchPetals();
+      launchConfetti();
+    });
+  }
+
+  const sparkleBtn = document.getElementById('sparkleBtn');
+  if(sparkleBtn){
+    sparkleBtn.addEventListener('click', () => {
+      launchPetals();
+      launchConfetti();
+    });
+  }
+
+  const musicBtn = document.getElementById('musicBtn');
+  if(musicBtn){
+    musicBtn.addEventListener('click', () => {
+      musicBtn.textContent =
+        musicBtn.textContent.includes('soft') ? '♫ birthday mode' : '♫ soft mode';
+    });
+  }
+
+  function launchPetals(){
+    const container = document.getElementById('petals');
+    if(!container) return;
+    const symbols = ['♡','✦','·','♥'];
+    for(let i=0;i<24;i++){
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      p.style.left = Math.random()*100 + 'vw';
+      p.style.fontSize = (8 + Math.random()*10) + 'px';
+      p.style.animationDuration = (4 + Math.random()*4) + 's';
+      p.style.animationDelay = Math.random()*.8 + 's';
+      container.appendChild(p);
+      setTimeout(() => p.remove(), 9000);
+    }
+  }
+
 </script>
 
 </body>
